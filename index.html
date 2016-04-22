@@ -131,9 +131,7 @@
       </div>
 
       <div class="card__button">
-        <a class="card__link btn btn--big btn--orange"
-           href="#"
-           next="card--weapon">
+        <a class="card__link btn btn--big btn--orange" href="#" next="card--weapon">
           <span class="btn__prompt">></span>
           <span class="btn__text">Select weapon</span>
         </a>
@@ -144,53 +142,71 @@
       <div class="card__prompt">
         <div>choose your weapon</div>
         <div>
-          <a class="card__back btn btn--small"
-             href="#"
-             previous="card--class">
+          <a class="card__back btn btn--small" href="#" previous="card--class">
             <span class="btn__prompt">&lt;</span>
             <span class="btn__text">Back</span>
           </a>
         </div>
       </div>
-        <div class="col-sm-12">
-          <div class="card__button">
-            <a class="class__Link btn btn-big btn--blue" href="#">
-              <span class="btn__prompt">></span>
-              <span class="btn_text hands">Bare Hands</span>
-            </a>
-          </div>
-          <div class="card__button">
-            <a class="class__Link btn btn-big btn--blue" href="#">
-              <span class="btn__prompt">></span>
-              <span class="btn_text dagger">Dagger</span>
-            </a>
-          </div>
-          <div class="card__button">
-            <a class="class__Link btn btn-big btn--blue" href="#">
-              <span class="btn__prompt">></span>
-              <span class="btn_text broadsword">Broad Sword</span>
-            </a>
-          </div>
-          <div class="card__button">
-            <a class="class__Link btn btn-big btn--blue" href="#">
-              <span class="btn__prompt">></span>
-              <span class="btn_text waraxe">War Axe</span>
-            </a>
-          </div>
+      <div class="col-sm-12">
+        <div class="card__button">
+          <a class="class__Link btn btn-big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn_text hands">Bare Hands</span>
+          </a>
         </div>
-      <div class="card__button">
-        <a class="card__link btn btn--big btn--orange"
-           href="#"
-           next="card--battleground">
-          <span class="btn__prompt"></span>
-          <span class="btn__text">defeat your enemies</span>
-        </a>
+        <div class="card__button">
+          <a class="class__Link btn btn-big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn_text dagger">Dagger</span>
+          </a>
+        </div>
+        <div class="card__button">
+          <a class="class__Link btn btn-big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn_text broadsword">Broad Sword</span>
+          </a>
+        </div>
+        <div class="card__button">
+          <a class="class__Link btn btn-big btn--blue" href="#">
+            <span class="btn__prompt">></span>
+            <span class="btn_text waraxe">War Axe</span>
+          </a>
+        </div>
       </div>
     </section>
+    <section id="readyToRumble">
+    <div class="card__button">
+      <a class="class__Link btn btn--big btn--orange" href="#" next="card--battleground">
+        <span class="btn__prompt"></span>
+        <span class="btn__text">defeat your enemies</span>
+      </a>
+    </div>
+    </section>
 
-    <section id="battleground" class="card card--battleground"></section>
-
-
+    <section id="battleground" class="card--battleground">
+      <div class="card__button">
+        <a class="attackButton class__Link btn btn--big btn--orange" href="#" next="card--battleground">
+          <span class="btn__prompt">></span>
+          <span id="attackButton" class="btn_text attack">ATTACK</span>
+        </a>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3" id="playerOne">
+            <div id="playerOneName"></div>
+            <input id="healthOne" type="text">
+          </div>
+          <div class="col-sm-1"></div>
+          <div id="stringData" class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3" id="player2">
+            <div id="playerTwoName"></div>
+            <input id="healthTwo "type="text">
+          </div>
+        </div>
+      </div>
+    </section>
   </article>
 
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
