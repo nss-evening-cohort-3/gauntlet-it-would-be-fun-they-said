@@ -18,6 +18,21 @@ var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
 
+$('#weapon-select').click(function(e) {     
+  if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
+    PlayerOne.setWeapon(new Weapon());       
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){  
+    PlayerOne.setWeapon(new Dagger());         
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());         
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){      
+    PlayerOne.setWeapon(new WarAxe());         
+    console.log(PlayerOne);       
+  }    
+})
+
 $(document).ready(function() {
   // Grab value from input for Player Name on click of anchor element "Select Class"
   $('#setName').click(function(){
