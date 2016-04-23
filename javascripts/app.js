@@ -60,6 +60,8 @@ $('#weapon-select').click(function(e) {
     else {
     // Call to function that calculate attack damages
     pTwoAttack();
+    console.log("p1", PlayerOne );
+    console.log("p2", PlayerTwo );
 
     }
   }
@@ -68,8 +70,6 @@ $('#weapon-select').click(function(e) {
   function pTwoAttack(){
     p1RemHealth = PlayerOne.health -= PlayerTwo.weapon.damage;
     pOneAttack(p1RemHealth);
-
-    playerOne.health = p1RemHealth;
   } 
 
   
