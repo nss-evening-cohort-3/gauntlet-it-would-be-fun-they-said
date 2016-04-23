@@ -1,15 +1,15 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+var PlayerOne = new Gauntlet.Combatants.Human();
+PlayerOne.setWeapon(new WarAxe());
+// warrior.generateClass();  // This will be used for "Surprise me" option
+// console.log(warrior.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new BroadSword());
-console.log(orc.toString());
+var PlayerTwo = new Gauntlet.Combatants.Orc();
+PlayerTwo.generateClass();
+PlayerTwo.setWeapon(new BroadSword());
+// console.log(orc.toString());
 
 /*
   Test code to generate a spell
@@ -17,6 +17,22 @@ console.log(orc.toString());
 var spell = new Gauntlet.SpellBook.Sphere();
 console.log("spell: ", spell.toString());
 
+
+$('#weapon-select').click(function(e) {     
+  if(e.target.parentNode.classList.contains('bareHands')){       
+    PlayerOne.setWeapon(new Weapon());       
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('dagger')){         
+    PlayerOne.setWeapon(new Dagger());         
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('broadsword')){         
+    PlayerOne.setWeapon(new BroadSword());         
+    console.log(PlayerOne);       
+  } else if (e.target.parentNode.classList.contains('waraxe')){         
+    PlayerOne.setWeapon(new WarAxe());         
+    console.log(PlayerOne);       
+  }    
+})
 
 $(document).ready(function() {
   /*
