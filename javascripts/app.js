@@ -19,16 +19,15 @@ console.log("spell: ", spell.toString());
 
 
 $('#weapon-select').click(function(e) {     
-  if(e.target.parentNode.classList.contains('bareHands')){       
+  if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
     PlayerOne.setWeapon(new Weapon());       
     console.log(PlayerOne);       
-  } else if (e.target.parentNode.classList.contains('dagger')){         
+  } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){  
     PlayerOne.setWeapon(new Dagger());         
     console.log(PlayerOne);       
-  } else if (e.target.parentNode.classList.contains('broadsword')){         
-    PlayerOne.setWeapon(new BroadSword());         
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());         
     console.log(PlayerOne);       
-  } else if (e.target.parentNode.classList.contains('waraxe')){         
+  } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){      
     PlayerOne.setWeapon(new WarAxe());         
     console.log(PlayerOne);       
   }    
@@ -40,9 +39,10 @@ $(document).ready(function() {
     PlayerOne.name = $('#player-name').val();
 });
 
-  $("#class-select").click(function(e) {
-    if (e.target.parentNode.classList.contains("className")) {
-      PlayerOne.class = e.target.innerHTML;
+  $("#class-select").click(function(e) {  
+    if (e.target.parentNode.classList.contains("className") || e.target.closest(".className")) {
+      PlayerOne.class = e.target.innerHTML || e.target.LastElementChild.innerHTML
+     console.log(PlayerOne);
     }
   })
 
