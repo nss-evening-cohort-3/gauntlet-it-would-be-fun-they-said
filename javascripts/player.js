@@ -32,7 +32,8 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      (this.class.magical) ? "Able to cast " : " Wielding a ",
+      // (this.class.magical) ? "Able to cast " : 
+      " Wielding a ",
       this.weapon.toString(),
       "!"
     ].join("");
@@ -43,6 +44,8 @@ Gauntlet.Combatants.Player = function(name) {
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
+
+
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array

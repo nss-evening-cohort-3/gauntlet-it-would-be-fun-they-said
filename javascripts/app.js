@@ -3,13 +3,14 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 PlayerOne.setWeapon(new WarAxe());
+
 PlayerOne.generateClass();  // This will be used for "Surprise me" option
-// console.log("p1", PlayerOne.toString());
+
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
 PlayerTwo.setWeapon(new BroadSword());
-// console.log("p2", PlayerTwo.toString());
+
 
 
 
@@ -17,8 +18,7 @@ PlayerTwo.setWeapon(new BroadSword());
   Test code to generate a spell
  */
 var spell = new Gauntlet.SpellBook.Sphere();
-// console.log("spell: ", spell.toString());
-// console.log("p2", PlayerTwo);
+
 
 
 $(document).ready(function() {
@@ -91,6 +91,12 @@ $(document).ready(function() {
   $('#setName').click(function(){
     PlayerOne.name = $('#player-name').val();
 });
+
+  $("#class-select").click(function(e) {
+    if (e.target.parentNode.classList.contains("className")) {
+      PlayerOne.class = e.target.innerHTML;
+    }
+  })
 
 
   /*
