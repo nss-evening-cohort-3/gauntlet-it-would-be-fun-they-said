@@ -2,6 +2,7 @@
   Test code to generate a human player and an orc player
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
+
 PlayerOne.setWeapon(new WarAxe());
 
 PlayerOne.generateClass();  // This will be used for "Surprise me" option
@@ -19,15 +20,18 @@ PlayerTwo.setWeapon(new BroadSword());
  */
 var spell = new Gauntlet.SpellBook.Sphere();
 
-$("#class-select").click(function(e) {
-     if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
-       PlayerOne.class = e.target.innerHTML;
+$(".className").click(function(e) {
+       if (e.target.closest('div').classList.contains("className")) {
+     // if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
+       PlayerOne.class = this.querySelector('.btn__text').innerHTML;
+       console.log(this.querySelector('.btn__text').innerHTML);
+
      }
    })
  
 
 $('#weapon-select').click(function(e) {     
-  if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
+  if(e.target.parentNode.classList.contains('barehands') || e.target.closest(".barehands")){       
     PlayerOne.setWeapon(new Weapon());       
     console.log(PlayerOne);       
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){  
