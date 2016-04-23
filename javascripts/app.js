@@ -39,10 +39,9 @@ $(document).ready(function() {
     PlayerOne.name = $('#player-name').val();
 });
 
-  $("#class-select").click(function(e) {  
-    if (e.target.parentNode.classList.contains("className") || e.target.closest(".className")) {
-      PlayerOne.class = e.target.innerHTML || e.target.LastElementChild.innerHTML
-     console.log(PlayerOne);
+  $("#class-select").click(function(e) {
+    if (e.target.parentNode.classList.contains("className")) {
+      PlayerOne.class = e.target.innerHTML;
     }
   })
 
