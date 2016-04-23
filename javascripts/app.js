@@ -3,7 +3,7 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 PlayerOne.setWeapon(new WarAxe());
-PlayerOne.generateClass();  // This will be used for "Surprise me" option
+// PlayerOne.generateClass();  // This will be used for "Surprise me" option
 console.log("p1", PlayerOne.toString());
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
@@ -23,6 +23,12 @@ $(document).ready(function() {
   $('#setName').click(function(){
     PlayerOne.name = $('#player-name').val();
 });
+
+  $("#class-select").click(function(e) {
+    if (e.target.parentNode.classList.contains("className")) {
+      PlayerOne.class = e.target.innerHTML;
+    }
+  })
 
 
   /*
