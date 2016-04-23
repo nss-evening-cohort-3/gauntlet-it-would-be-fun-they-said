@@ -4,20 +4,28 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 PlayerOne.setWeapon(new WarAxe());
-// PlayerOne.generateClass();  // This will be used for "Surprise me" option
-console.log("p1", PlayerOne.toString());
+
+PlayerOne.generateClass();  // This will be used for "Surprise me" option
+
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
 PlayerTwo.setWeapon(new BroadSword());
-console.log("p2", PlayerTwo.toString());
+
+
+
 
 /*
   Test code to generate a spell
  */
 var spell = new Gauntlet.SpellBook.Sphere();
-console.log("spell: ", spell.toString());
 
+$("#class-select").click(function(e) {
+     if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
+       PlayerOne.class = e.target.innerHTML;
+     }
+   })
+ 
 
 $('#weapon-select').click(function(e) {     
   if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
@@ -35,7 +43,72 @@ $('#weapon-select').click(function(e) {
 })
 
 $(document).ready(function() {
+  // Function to check p1 and p2 current health
+  function checkHealth(){
+    // Checking to see if P1 is dead
+    if (PlayerOne.health <= 0) {
+    // loseGame();
+    
+    }
+    // Checking to see if P2 is dead
+    else if (PlayerTwo.health <= 0){
+    // winGame();
+    }
+    else {
+    // Call to function that calculate attack damages
+    pTwoAttack();
+    }
+  }
+
+
+  function pTwoAttack(){
+    p1RemHealth = PlayerOne.health - PlayerTwo.weapon.damage;
+
+    pOneAttack(p1RemHealth);
+  } 
+
+  
+  function pOneAttack(p1RemHealth){
+    p2RemHealth = PlayerTwo.health - PlayerOne.weapon.damage;
+
+    atkStrings(p1RemHealth, p2RemHealth);
+  } 
+
+  function atkStrings(p1RemHealth, p2RemHealth){
+    p2AtkString = `${PlayerTwo.name} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!`
+    p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage!`
+    
+
+    atkDisplay(p2AtkString, p1AtkString);
+  }
+
+  function atkDisplay(p2AtkString, p1AtkString){
+    p1Div = $('#playerOne')
+    p2Div = $('#playerTwo')
+    
+    p1Div.html(p1AtkString);
+    p2Div.html(p2AtkString);
+   
+    
+
+  }
+
+
+
+
+
+
+
+  // Use if else statement to either call winGame, loseGame function, or calculate damage
+  
+
+
+
+
   // Grab value from input for Player Name on click of anchor element "Select Class"
+
+
+
   $('#setName').click(function(){
     PlayerOne.name = $('#player-name').val();
 });
@@ -51,6 +124,8 @@ $(document).ready(function() {
     Show the initial view that accepts player name
    */
   $("#player-setup").show();
+  $("#readyToRumble").hide();
+  $("#battleground").hide();
 
   /*
     When any button with card__link class is clicked,
@@ -84,7 +159,7 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
-
+checkHealth();
 });
 },{}],2:[function(require,module,exports){
 /*
@@ -350,6 +425,7 @@ Gauntlet.Combatants.Human = function() {
   var randomSkin;
 
   this.species = "Human";
+  this.health = this.health;
   this.intelligence = this.intelligence + 20;
 
   this.skinColors.push("brown", "red", "white", "disease");
