@@ -3,6 +3,7 @@
   Test code to generate a human player and an orc player
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
+
 PlayerOne.setWeapon(new WarAxe());
 
 PlayerOne.generateClass();  // This will be used for "Surprise me" option
@@ -20,15 +21,18 @@ PlayerTwo.setWeapon(new BroadSword());
  */
 var spell = new Gauntlet.SpellBook.Sphere();
 
-$("#class-select").click(function(e) {
-     if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
-       PlayerOne.class = e.target.innerHTML;
+$(".className").click(function(e) {
+       if (e.target.closest('div').classList.contains("className")) {
+     // if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
+       PlayerOne.class = this.querySelector('.btn__text').innerHTML;
+       console.log(this.querySelector('.btn__text').innerHTML);
+    $('#battleground').show();
      }
    })
  
 
 $('#weapon-select').click(function(e) {     
-  if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
+  if(e.target.parentNode.classList.contains('barehands') || e.target.closest(".barehands")){       
     PlayerOne.setWeapon(new Weapon());       
     console.log(PlayerOne);       
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){  
@@ -42,7 +46,7 @@ $('#weapon-select').click(function(e) {
   }    
 })
 
-$(document).ready(function() {
+// $(document).ready(function() {
   // Function to check p1 and p2 current health
   function checkHealth(){
     // Checking to see if P1 is dead
@@ -57,25 +61,27 @@ $(document).ready(function() {
     else {
     // Call to function that calculate attack damages
     pTwoAttack();
+    console.log("p1", PlayerOne );
+    console.log("p2", PlayerTwo );
+
     }
   }
 
 
   function pTwoAttack(){
-    p1RemHealth = PlayerOne.health - PlayerTwo.weapon.damage;
-
+    p1RemHealth = PlayerOne.health -= PlayerTwo.weapon.damage;
     pOneAttack(p1RemHealth);
   } 
 
   
   function pOneAttack(p1RemHealth){
-    p2RemHealth = PlayerTwo.health - PlayerOne.weapon.damage;
+    p2RemHealth = PlayerTwo.health -= PlayerOne.weapon.damage;
 
     atkStrings(p1RemHealth, p2RemHealth);
   } 
 
   function atkStrings(p1RemHealth, p2RemHealth){
-    p2AtkString = `${PlayerTwo.name} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!`
+    p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!`
     p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage!`
     
 
@@ -160,7 +166,7 @@ $(document).ready(function() {
     $("." + previousCard).show();
   });
 checkHealth();
-});
+// });
 },{}],2:[function(require,module,exports){
 /*
   TODO: Modularize this code with IIFE or Browserify
@@ -425,8 +431,7 @@ Gauntlet.Combatants.Human = function() {
   var randomSkin;
 
   this.species = "Human";
-  this.health = this.health;
-  this.intelligence = this.intelligence + 20;
+  this.intelligence = this.xintelligence + 20;
 
   this.skinColors.push("brown", "red", "white", "disease");
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));

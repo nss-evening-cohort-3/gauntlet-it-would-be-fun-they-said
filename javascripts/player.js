@@ -70,7 +70,7 @@ Gauntlet.Combatants.Human = function() {
   var randomSkin;
 
   this.species = "Human";
-  this.intelligence = this.intelligence + 20;
+  this.intelligence = this.xintelligence + 20;
 
   this.skinColors.push("brown", "red", "white", "disease");
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
