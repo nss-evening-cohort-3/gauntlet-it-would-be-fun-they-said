@@ -2,15 +2,15 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+var PlayerOne = new Gauntlet.Combatants.Human();
+PlayerOne.setWeapon(new WarAxe());
+PlayerOne.generateClass();  // This will be used for "Surprise me" option
+console.log("p1", PlayerOne.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new BroadSword());
-console.log(orc.toString());
+var PlayerTwo = new Gauntlet.Combatants.Orc();
+PlayerTwo.generateClass();
+PlayerTwo.setWeapon(new BroadSword());
+console.log("p2", PlayerTwo.toString());
 
 /*
   Test code to generate a spell
@@ -20,6 +20,12 @@ console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
+  // Grab value from input for Player Name on click of anchor element "Select Class"
+  $('#setName').click(function(){
+    PlayerOne.name = $('#player-name').val();
+});
+
+
   /*
     Show the initial view that accepts player name
    */
@@ -31,7 +37,8 @@ $(document).ready(function() {
    */
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    // console.log("next", nextCard );
+    var moveAlong = null;
 
     switch (nextCard) {
       case "card--class":
@@ -219,6 +226,7 @@ Gauntlet.GuildHall.Assassin.prototype = new Gauntlet.GuildHall.Stealth();
 },{}],3:[function(require,module,exports){
 Gauntlet.Combatants.Orc = function() {
   this.health = this.health + 20;
+  this.playerName = "Gobbledeegook"
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
 
@@ -324,7 +332,7 @@ Gauntlet.Combatants.Human = function() {
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
 
-  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Wizard", "Shaman", "Conjurer", "Sorcerer", "Thief", "Ninja", "Assassin"];
 };
 Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
