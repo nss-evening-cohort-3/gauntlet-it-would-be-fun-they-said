@@ -19,7 +19,12 @@ PlayerTwo.setWeapon(new BroadSword());
  */
 var spell = new Gauntlet.SpellBook.Sphere();
 
-
+$("#class-select").click(function(e) {
+     if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
+       PlayerOne.class = e.target.innerHTML;
+     }
+   })
+ 
 
 $('#weapon-select').click(function(e) {     
   if(e.target.parentNode.classList.contains('bareHands') || e.target.closest(".barehands")){       
