@@ -3,13 +3,13 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 PlayerOne.setWeapon(new WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
+// PlayerOne.generateClass();  // This will be used for "Surprise me" option
+console.log("p1", PlayerOne.toString());
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
 PlayerTwo.setWeapon(new BroadSword());
-// console.log(orc.toString());
+console.log("p2", PlayerTwo.toString());
 
 /*
   Test code to generate a spell
@@ -35,6 +35,18 @@ $('#weapon-select').click(function(e) {
 })
 
 $(document).ready(function() {
+  // Grab value from input for Player Name on click of anchor element "Select Class"
+  $('#setName').click(function(){
+    PlayerOne.name = $('#player-name').val();
+});
+
+  $("#class-select").click(function(e) {
+    if (e.target.parentNode.classList.contains("className")) {
+      PlayerOne.class = e.target.innerHTML;
+    }
+  })
+
+
   /*
     Show the initial view that accepts player name
    */
@@ -46,7 +58,8 @@ $(document).ready(function() {
    */
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    // console.log("next", nextCard );
+    var moveAlong = null;
 
     switch (nextCard) {
       case "card--class":

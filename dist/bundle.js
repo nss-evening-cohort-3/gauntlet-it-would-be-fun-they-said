@@ -4,13 +4,13 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 PlayerOne.setWeapon(new WarAxe());
-// warrior.generateClass();  // This will be used for "Surprise me" option
-// console.log(warrior.toString());
+// PlayerOne.generateClass();  // This will be used for "Surprise me" option
+console.log("p1", PlayerOne.toString());
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
 PlayerTwo.setWeapon(new BroadSword());
-// console.log(orc.toString());
+console.log("p2", PlayerTwo.toString());
 
 /*
   Test code to generate a spell
@@ -36,6 +36,18 @@ $('#weapon-select').click(function(e) {
 })
 
 $(document).ready(function() {
+  // Grab value from input for Player Name on click of anchor element "Select Class"
+  $('#setName').click(function(){
+    PlayerOne.name = $('#player-name').val();
+});
+
+  $("#class-select").click(function(e) {
+    if (e.target.parentNode.classList.contains("className")) {
+      PlayerOne.class = e.target.innerHTML;
+    }
+  })
+
+
   /*
     Show the initial view that accepts player name
    */
@@ -47,7 +59,8 @@ $(document).ready(function() {
    */
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
-    var moveAlong = false;
+    // console.log("next", nextCard );
+    var moveAlong = null;
 
     switch (nextCard) {
       case "card--class":
@@ -235,6 +248,7 @@ Gauntlet.GuildHall.Assassin.prototype = new Gauntlet.GuildHall.Stealth();
 },{}],3:[function(require,module,exports){
 Gauntlet.Combatants.Orc = function() {
   this.health = this.health + 20;
+  this.playerName = "Gobbledeegook"
   this.species = "Orc";
   this.allowedClasses = ["Warrior", "Berserker", "Shaman"];
 
@@ -299,7 +313,8 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      (this.class.magical) ? "Able to cast " : " Wielding a ",
+      // (this.class.magical) ? "Able to cast " : 
+      " Wielding a ",
       this.weapon.toString(),
       "!"
     ].join("");
@@ -310,6 +325,8 @@ Gauntlet.Combatants.Player = function(name) {
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
 }
+
+
 
 Gauntlet.Combatants.Player.prototype.generateClass = function() {
   // Get a random index from the allowed classes array
@@ -340,7 +357,7 @@ Gauntlet.Combatants.Human = function() {
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
   this.skinColor = this.skinColors[randomSkin];
 
-  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+  this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk", "Wizard", "Shaman", "Conjurer", "Sorcerer", "Thief", "Ninja", "Assassin"];
 };
 Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
