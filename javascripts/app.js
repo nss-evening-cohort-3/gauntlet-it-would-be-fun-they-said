@@ -103,14 +103,14 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 loseGame = function(){
   $("#attackButton").hide();
-  alert($("PlayerTwo.name") + " Wins the Game");
+  alert(`${PlayerTwo.name} Wins the Game"`);
 }
 
 
 
 winGame = function (){
  $("#attackButton").hide();
- alert($("PlayerOne.name" ) + " Wins the Game");
+ alert(`${PlayerOne.name} Wins the Game`);
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
