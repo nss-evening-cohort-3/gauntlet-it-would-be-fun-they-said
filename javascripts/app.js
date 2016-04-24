@@ -55,12 +55,12 @@ $('#weapon-select').click(function(e) {
 function checkHealth(){
   // Checking to see if P1 is dead
   if (PlayerOne.health <= 0) {
-  //loseGame();
+  loseGame();
 
   }
   // Checking to see if P2 is dead
   else if (PlayerTwo.health <= 0){
-  // winGame();
+  winGame();
   }
   else {
   // Call to function that calculate attack damages
@@ -176,7 +176,13 @@ winGame = function (){
     $("#readyToRumble").hide();
     $("#weapon-select").hide();
     $("#battleground").show();
+  });
+
+  $("#attackButton").click(function() {
+    checkHealth();
   })
+
+
 // checkHealth();
 
 
