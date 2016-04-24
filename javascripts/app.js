@@ -102,14 +102,14 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 
 loseGame = function(){
-  $("#attackButton").hide();
+  $(".attackButton").hide();
   alert(`${PlayerTwo.name} Wins the Game"`);
 }
 
 
 
 winGame = function (){
- $("#attackButton").hide();
+ $(".attackButton").hide();
  alert(`${PlayerOne.name} Wins the Game`);
 }
 
