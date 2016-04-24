@@ -103,14 +103,14 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 loseGame = function(){
   $("#attackButton").hide();
-  alert($("PlayerTwo.name") + " Wins the Game");
+  alert(`${PlayerTwo.name} Wins the Game"`);
 }
 
 
 
 winGame = function (){
  $("#attackButton").hide();
- alert($("PlayerOne.name" ) + " Wins the Game");
+ alert(`${PlayerOne.name} Wins the Game`);
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
@@ -141,7 +141,7 @@ winGame = function (){
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     console.log("next", nextCard );
-    var moveAlong = null;
+    var moveAlong = false;
 
     switch (nextCard) {
       case "card--class":
@@ -172,7 +172,12 @@ winGame = function (){
     $("." + previousCard).show();
   });
 
-checkHealth();
+  $("#readyToRumble").click(function() {
+    $("#readyToRumble").hide();
+    $("#weapon-select").hide();
+    $("#battleground").show();
+  })
+// checkHealth();
 
 
 
