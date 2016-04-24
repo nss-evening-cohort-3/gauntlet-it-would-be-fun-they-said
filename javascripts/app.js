@@ -86,8 +86,8 @@ $('#weapon-select').click(function(e) {
   } 
 
   function atkStrings(p1RemHealth, p2RemHealth){
-    p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!`
-    p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage!`
+    p2AtkString = `<h4>${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!</h4>`
+    p1AtkString = `<h4>${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage!</h4>`
     
 
     atkDisplay(p2AtkString, p1AtkString);
