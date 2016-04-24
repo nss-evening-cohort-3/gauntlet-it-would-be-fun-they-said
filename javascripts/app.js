@@ -44,8 +44,15 @@ $('#weapon-select').click(function(e) {
     console.log(PlayerOne);       
   }    
 })
+  
+  // Event listener on Attack Button
+  $('#attackButton').click(function(){
 
-// $(document).ready(function() {
+    checkHealth();
+  });
+
+
+
   // Function to check p1 and p2 current health
   function checkHealth(){
     // Checking to see if P1 is dead
@@ -75,7 +82,6 @@ $('#weapon-select').click(function(e) {
   
   function pOneAttack(p1RemHealth){
     p2RemHealth = PlayerTwo.health -= PlayerOne.weapon.damage;
-
     atkStrings(p1RemHealth, p2RemHealth);
   } 
 
@@ -113,6 +119,7 @@ $('#weapon-select').click(function(e) {
   // Grab value from input for Player Name on click of anchor element "Select Class"
 
 
+$(document).ready(function() {
 
   $('#setName').click(function(){
     PlayerOne.name = $('#player-name').val();
@@ -164,5 +171,4 @@ $('#weapon-select').click(function(e) {
     $(".card").hide();
     $("." + previousCard).show();
   });
-checkHealth();
-// });
+});
