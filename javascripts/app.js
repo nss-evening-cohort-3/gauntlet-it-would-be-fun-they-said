@@ -36,7 +36,7 @@ $('#weapon-select').click(function(e) {
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){
     PlayerOne.setWeapon(new Dagger());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());         
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){
     PlayerOne.setWeapon(new WarAxe());
@@ -102,14 +102,18 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 
 loseGame = function(){
-  $("#attackButton").hide();
-  alert(`${PlayerTwo.name} Wins the Game"`);
+  $(".attackButton").hide();
+  //p2AtkString = `${}
+  alert(`${PlayerTwo.playerName} Wins the Game"`);
+
+  atkDisplay()
 }
 
 
 
 winGame = function (){
- $("#attackButton").hide();
+ $(".attackButton").hide();
+ 
  alert(`${PlayerOne.name} Wins the Game`);
 }
 
