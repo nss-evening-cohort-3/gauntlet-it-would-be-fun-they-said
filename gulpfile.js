@@ -9,12 +9,12 @@ var gutil = require('gulp-util');
 var assign = require('lodash.assign');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var  sourcemaps = require('gulp-sourcemaps');
+var sourcemaps = require('gulp-sourcemaps');
 
 
 // add custom browserify options here
 var customOpts = {
-  entries: ['./javascripts/main.js'],
+  entries: ['./javascripts/app.js'],
   debug: true
 };
 var opts = assign({}, watchify.args, customOpts);
