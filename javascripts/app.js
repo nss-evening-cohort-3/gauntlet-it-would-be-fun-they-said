@@ -141,7 +141,7 @@ winGame = function (){
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
     console.log("next", nextCard );
-    var moveAlong = null;
+    var moveAlong = false;
 
     switch (nextCard) {
       case "card--class":
@@ -172,7 +172,12 @@ winGame = function (){
     $("." + previousCard).show();
   });
 
-checkHealth();
+  $("#readyToRumble").click(function() {
+    $("#readyToRumble").hide();
+    $("#weapon-select").hide();
+    $("#battleground").show();
+  })
+// checkHealth();
 
 
 
