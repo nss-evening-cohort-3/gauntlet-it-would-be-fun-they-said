@@ -36,7 +36,7 @@ $('#weapon-select').click(function(e) {
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){
     PlayerOne.setWeapon(new Dagger());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());         
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){
     PlayerOne.setWeapon(new WarAxe());
@@ -56,6 +56,7 @@ $('#weapon-select').click(function(e) {
 // Function to check p1 and p2 current health
 function checkHealth(){
   // Checking to see if P1 is dead
+  pTwoAttack();
   if (PlayerOne.health <= 0) {
   loseGame();
 
@@ -66,11 +67,8 @@ function checkHealth(){
   winGame();
   }
   else {
-  // Call to function that calculate attack damages
-  pTwoAttack();
   console.log("p1", PlayerOne );
   console.log("p2", PlayerTwo );
-
   }
 
 }
@@ -103,18 +101,23 @@ function atkDisplay(p2AtkString, p1AtkString){
 }
 
 
-
 loseGame = function(){
-  $("#attackButton").hide();
-  alert(`${PlayerTwo.name} Wins the Game"`);
+  $(".attackButton").hide();
+  p2AtkLoseString = `${PlayerTwo.playerName} has Defeated ${PlayerOne.name}`;
+  p1AtkLoseString = `${""}`;
+  atkDisplay(p2AtkLoseString, p1AtkLoseString);
+  //alert(`${PlayerTwo.playerName} Wins the Game"`);
 }
 
 
 $(document).ready(function() {
 
 winGame = function (){
- $("#attackButton").hide();
- alert(`${PlayerOne.name} Wins the Game`);
+ $(".attackButton").hide();
+ p2AtkWinString = `${""}`;
+ p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.playerName}`;
+ atkDisplay(p2AtkWinString, p1AtkWinString);
+ //alert(`${PlayerOne.name} Wins the Game`);
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"

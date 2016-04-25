@@ -37,7 +37,7 @@ $('#weapon-select').click(function(e) {
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){
     PlayerOne.setWeapon(new Dagger());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());         
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){
     PlayerOne.setWeapon(new WarAxe());
@@ -55,6 +55,7 @@ $('#weapon-select').click(function(e) {
 // Function to check p1 and p2 current health
 function checkHealth(){
   // Checking to see if P1 is dead
+  pTwoAttack();
   if (PlayerOne.health <= 0) {
   loseGame();
 
@@ -64,11 +65,8 @@ function checkHealth(){
   winGame();
   }
   else {
-  // Call to function that calculate attack damages
-  pTwoAttack();
   console.log("p1", PlayerOne );
   console.log("p2", PlayerTwo );
-
   }
 
 }
@@ -88,8 +86,8 @@ function pOneAttack(p1RemHealth){
 }
 
 function atkStrings(p1RemHealth, p2RemHealth){
-  p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage!`
-  p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage!`
+  p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage! and Health is ${p2RemHealth}`
+  p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage! and Health is ${p1RemHealth}`
   atkDisplay(p2AtkString, p1AtkString);
 }
 
@@ -101,17 +99,22 @@ function atkDisplay(p2AtkString, p1AtkString){
 }
 
 
-
 loseGame = function(){
-  $("#attackButton").hide();
-  alert(`${PlayerTwo.name} Wins the Game"`);
+  $(".attackButton").hide();
+  p2AtkLoseString = `${PlayerTwo.playerName} has Defeated ${PlayerOne.name}`;
+  p1AtkLoseString = `${""}`;
+  atkDisplay(p2AtkLoseString, p1AtkLoseString);
+  //alert(`${PlayerTwo.playerName} Wins the Game"`);
 }
 
 
 
 winGame = function (){
- $("#attackButton").hide();
- alert(`${PlayerOne.name} Wins the Game`);
+ $(".attackButton").hide();
+ p2AtkWinString = `${""}`;
+ p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.playerName}`;
+ atkDisplay(p2AtkWinString, p1AtkWinString);
+ //alert(`${PlayerOne.name} Wins the Game`);
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
