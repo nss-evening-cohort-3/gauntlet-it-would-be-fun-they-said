@@ -3,14 +3,14 @@
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
 
-PlayerOne.setWeapon(new WarAxe());
+PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
 
 PlayerOne.generateClass();  // This will be used for "Surprise me" option
 
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
-PlayerTwo.setWeapon(new BroadSword());
+PlayerTwo.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 
 
 
@@ -31,15 +31,18 @@ $(".className").click(function(e) {
 
 $('#weapon-select').click(function(e) {
   if(e.target.parentNode.classList.contains('barehands') || e.target.closest(".barehands")){
-    PlayerOne.setWeapon(new Weapon());
+    PlayerOne.setWeapon(new Gauntlet.WeaponRack.Weapon());
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){
-    PlayerOne.setWeapon(new Dagger());
+    PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){PlayerOne.setWeapon(new BroadSword());
+
+  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){
+    PlayerOne.setWeapon(new Gauntlet.WeaponRack.BroadSword());
+
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){
-    PlayerOne.setWeapon(new WarAxe());
+    PlayerOne.setWeapon(new Gauntlet.WeaponRack.WarAxe());
     console.log(PlayerOne);
   }
   $("#readyToRumble").show();
