@@ -55,6 +55,7 @@ $('#weapon-select').click(function(e) {
 // Function to check p1 and p2 current health
 function checkHealth(){
   // Checking to see if P1 is dead
+  pTwoAttack();
   if (PlayerOne.health <= 0) {
   loseGame();
 
@@ -64,11 +65,8 @@ function checkHealth(){
   winGame();
   }
   else {
-  // Call to function that calculate attack damages
-  pTwoAttack();
   console.log("p1", PlayerOne );
   console.log("p2", PlayerTwo );
-
   }
 
 }
