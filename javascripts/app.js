@@ -54,6 +54,7 @@ $('#weapon-select').click(function(e) {
 // Function to check p1 and p2 current health
 function checkHealth(){
   // Checking to see if P1 is dead
+  pTwoAttack();
   if (PlayerOne.health <= 0) {
   loseGame();
 
@@ -63,11 +64,8 @@ function checkHealth(){
   winGame();
   }
   else {
-  // Call to function that calculate attack damages
-  pTwoAttack();
   console.log("p1", PlayerOne );
   console.log("p2", PlayerTwo );
-
   }
 
 }
@@ -106,7 +104,6 @@ loseGame = function(){
   p1AtkLoseString = `${""}`;
   atkDisplay(p2AtkLoseString, p1AtkLoseString);
   //alert(`${PlayerTwo.playerName} Wins the Game"`);
-
 }
 
 
@@ -117,7 +114,6 @@ winGame = function (){
  p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.playerName}`;
  atkDisplay(p2AtkWinString, p1AtkWinString);
  //alert(`${PlayerOne.name} Wins the Game`);
-
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
