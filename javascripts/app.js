@@ -30,18 +30,18 @@ $(".className").click(function(e) {
 
 
 $('#weapon-select').click(function(e) {
-  if(e.target.parentNode.classList.contains("hands")) {
+  if (e.target.parentNode.classList.contains("hands") || e.target.parentNode.classList.contains("one")) {
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.Weapon());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains("dagger")){
+  } else if (e.target.parentNode.classList.contains("dagger") || e.target.parentNode.classList.contains("two")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
     console.log(PlayerOne);
 
-  } else if (e.target.parentNode.classList.contains("sword")){
+  } else if (e.target.parentNode.classList.contains("sword") || e.target.parentNode.classList.contains("three")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains("axe")){
+  } else if (e.target.parentNode.classList.contains("axe") || e.target.parentNode.classList.contains("four")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.WarAxe());
     console.log(PlayerOne);
   }
