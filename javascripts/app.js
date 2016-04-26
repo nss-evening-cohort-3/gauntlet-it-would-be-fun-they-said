@@ -214,8 +214,8 @@ winGame = function (){
 
   $("#attackButton").click(function() {
   $('#battleText').css('border', '2px white solid')
-  $('#statOne').css('border', '1px orange solid').css('fontSize','20px')
-  $('#statTwo').css('border', '1px purple solid').css('fontSize','20px')
+  $('#statOne').css('border', '1px orange solid').css('fontSize','18px')
+  $('#statTwo').css('border', '1px purple solid').css('fontSize','18px')
     statCardOne();
     statCardTwo();
 
