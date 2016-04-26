@@ -106,7 +106,7 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 loseGame = function(){
   $(".attackButton").hide();
-  p2AtkLoseString = `${PlayerTwo.playerName} has Defeated ${PlayerOne.name}`;
+  p2AtkLoseString = `${PlayerTwo.name} has Defeated ${PlayerOne.name}`;
   p1AtkLoseString = `${""}`;
   atkDisplay(p2AtkLoseString, p1AtkLoseString);
   //alert(`${PlayerTwo.playerName} Wins the Game"`);
