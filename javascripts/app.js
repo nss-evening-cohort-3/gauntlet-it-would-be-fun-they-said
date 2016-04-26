@@ -91,7 +91,7 @@ function pOneAttack(p1RemHealth){
 }
 
 function atkStrings(p1RemHealth, p2RemHealth){
-  p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage! and Health is ${p2RemHealth}`
+  p2AtkString = `${PlayerTwo.name} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage! and Health is ${p2RemHealth}`
   p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage! and Health is ${p1RemHealth}`
   atkDisplay(p2AtkString, p1AtkString);
 }
