@@ -109,7 +109,6 @@ loseGame = function(){
   p2AtkLoseString = `${PlayerTwo.name} has Defeated ${PlayerOne.name}`;
   p1AtkLoseString = `${""}`;
   atkDisplay(p2AtkLoseString, p1AtkLoseString);
-  //alert(`${PlayerTwo.playerName} Wins the Game"`);
 }
 
 
@@ -120,7 +119,10 @@ winGame = function (){
  p2AtkWinString = `${""}`;
  p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.playerName}`;
  atkDisplay(p2AtkWinString, p1AtkWinString);
- //alert(`${PlayerOne.name} Wins the Game`);
+}
+
+function statCard(){
+  
 }
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
@@ -193,6 +195,8 @@ winGame = function (){
   });
 
   $("#attackButton").click(function() {
+  $('.container').css('border', '8px white solid')
+    
     checkHealth();
   })
 
