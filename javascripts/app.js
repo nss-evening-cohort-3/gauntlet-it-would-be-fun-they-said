@@ -47,10 +47,12 @@ $('#weapon-select').click(function(e) {
   }
   $("#readyToRumble").show();
 })
+  
+  // // Event listener on Attack Button
+  // $('#attackButton').click(function(){
 
-
-
-
+  //   checkHealth();
+  // });
 
 
 
@@ -60,6 +62,7 @@ function checkHealth(){
   pTwoAttack();
   if (PlayerOne.health <= 0) {
   loseGame();
+
 
   }
   // Checking to see if P2 is dead
@@ -88,7 +91,7 @@ function pOneAttack(p1RemHealth){
 }
 
 function atkStrings(p1RemHealth, p2RemHealth){
-  p2AtkString = `${PlayerTwo.playerName} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage! and Health is ${p2RemHealth}`
+  p2AtkString = `${PlayerTwo.name} attacks with ${PlayerTwo.weapon} for ${PlayerTwo.weapon.damage} damage! and Health is ${p2RemHealth}`
   p1AtkString = `${PlayerOne.name} attacks with ${PlayerOne.weapon} for ${PlayerOne.weapon.damage} damage! and Health is ${p1RemHealth}`
   atkDisplay(p2AtkString, p1AtkString);
 }
@@ -103,13 +106,14 @@ function atkDisplay(p2AtkString, p1AtkString){
 
 loseGame = function(){
   $(".attackButton").hide();
-  p2AtkLoseString = `${PlayerTwo.playerName} has Defeated ${PlayerOne.name}`;
+  p2AtkLoseString = `${PlayerTwo.name} has Defeated ${PlayerOne.name}`;
   p1AtkLoseString = `${""}`;
   atkDisplay(p2AtkLoseString, p1AtkLoseString);
   //alert(`${PlayerTwo.playerName} Wins the Game"`);
 }
 
 
+$(document).ready(function() {
 
 winGame = function (){
  $(".attackButton").hide();
@@ -179,6 +183,9 @@ winGame = function (){
     $("." + previousCard).show();
   });
 
+});
+
+
   $("#readyToRumble").click(function() {
     $("#readyToRumble").hide();
     $("#weapon-select").hide();
@@ -190,7 +197,6 @@ winGame = function (){
   })
 
 
-// checkHealth();
 
 
 
@@ -198,4 +204,3 @@ winGame = function (){
 
 
 
-// });
