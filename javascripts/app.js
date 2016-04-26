@@ -111,6 +111,15 @@ loseGame = function(){
   atkDisplay(p2AtkLoseString, p1AtkLoseString);
 }
 
+function statCardOne(){
+  $('#statOne').html(`<div>Name: ${PlayerOne.name}</div><div>Class: ${PlayerOne.class}</div><div>Species: ${PlayerOne.species}</div><div>Health: ${PlayerOne.health}</div><div>Int: ${PlayerOne.intelligence}</div><div>Skin: ${PlayerOne.skinColor}</div>`)
+}
+
+function statCardTwo(){
+  $('#statTwo').html(`<div>Name: ${PlayerTwo.name}</div><div>Class: ${PlayerTwo.class}</div><div>Species: ${PlayerTwo.species}</div><div>Health: ${PlayerTwo.health}</div><div>Int: ${PlayerTwo.intelligence}</div><div>Skin: ${PlayerTwo.skinColor}</div>`)
+}
+
+
 
 $(document).ready(function() {
 
@@ -121,9 +130,6 @@ winGame = function (){
  atkDisplay(p2AtkWinString, p1AtkWinString);
 }
 
-function statCard(){
-  
-}
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
 
@@ -146,6 +152,7 @@ function statCard(){
   $("#player-setup").show();
   $("#readyToRumble").hide();
   $("#battleground").hide();
+
 
   /*
     When any button with card__link class is clicked,
@@ -195,8 +202,12 @@ function statCard(){
   });
 
   $("#attackButton").click(function() {
-  $('.container').css('border', '8px white solid')
-    
+  $('#battleText').css('border', '2px white solid')
+  $('#statOne').css('border', '1px orange solid').css('fontSize','20px')
+  $('#statTwo').css('border', '1px purple solid').css('fontSize','20px')
+    statCardOne();
+    statCardTwo();
+
     checkHealth();
   })
 
