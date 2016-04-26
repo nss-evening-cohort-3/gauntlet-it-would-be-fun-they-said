@@ -21,10 +21,11 @@ PlayerTwo.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 var spell = new Gauntlet.SpellBook.Sphere();
 
 $(".className").click(function(e) {
+       let classSel = $(this).val();
        if (e.target.closest('div').classList.contains("className")) {
      // if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
-       PlayerOne.class = this.querySelector('.btn__text').innerHTML;
-       console.log(this.querySelector('.btn__text').innerHTML);
+       PlayerOne.setClass();
+       console.log(PlayerOne);
      }
    })
 
@@ -36,10 +37,8 @@ $('#weapon-select').click(function(e) {
   } else if (e.target.parentNode.classList.contains("dagger")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
     console.log(PlayerOne);
-
   } else if (e.target.parentNode.classList.contains("sword")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.BroadSword());
-
     console.log(PlayerOne);
   } else if (e.target.parentNode.classList.contains("axe")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.WarAxe());
