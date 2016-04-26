@@ -5,8 +5,6 @@ var PlayerOne = new Gauntlet.Combatants.Human();
 
 PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
 
-PlayerOne.generateClass();  // This will be used for "Surprise me" option
-
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
@@ -47,6 +45,12 @@ $('#weapon-select').click(function(e) {
   }
   $("#readyToRumble").show();
 })
+
+  $('.random').click(function() {
+    PlayerOne.generateClass();  // This will be used for "Surprise me" option
+    console.log("PlayerOne", PlayerOne);
+});
+
   
   // // Event listener on Attack Button
   // $('#attackButton').click(function(){
