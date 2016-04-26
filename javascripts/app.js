@@ -5,8 +5,6 @@ var PlayerOne = new Gauntlet.Combatants.Human();
 
 PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
 
-PlayerOne.generateClass();  // This will be used for "Surprise me" option
-
 
 var PlayerTwo = new Gauntlet.Combatants.Orc();
 PlayerTwo.generateClass();
@@ -47,6 +45,19 @@ $('#weapon-select').click(function(e) {
   }
   $("#readyToRumble").show();
 })
+
+// This is where the function to generate a random class for PlayerOne is called upoon clciking on the "Suprise me" button on the page where you select a class.
+  $('.random').click(function() {
+    PlayerOne.generateClass();  // This will be used for "Surprise me" option
+    console.log("PlayerOne", PlayerOne);
+});
+
+// This is where the function to generate a random weapon for PlayerOne is called upoon clciking on the "Suprise me" button on the page where you select a weapon.
+  $('.other').click(function() {
+    PlayerOne.generateWeapon();  // This will be used for "Surprise me" option
+    console.log("PlayerOne", PlayerOne);
+});
+
   
   // // Event listener on Attack Button
   // $('#attackButton').click(function(){
