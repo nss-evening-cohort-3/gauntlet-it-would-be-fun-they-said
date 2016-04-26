@@ -93,7 +93,7 @@ Gauntlet.GuildHall.Shaman = function() {
 Gauntlet.GuildHall.Shaman.prototype = new Gauntlet.GuildHall.Mage();
 
 
-originalGauntlet.GuildHall.Wizard = function() {
+Gauntlet.GuildHall.Wizard = function() {
   this.name = "Wizard";
   this.healthBonus = this.healthBonus - 15;
   this.strengthBonus = this.strengthBonus - 25;
@@ -110,7 +110,7 @@ Gauntlet.GuildHall.Conjurer = function() {
 Gauntlet.GuildHall.Conjurer.prototype = new Gauntlet.GuildHall.Mage();
 
 
-originalGauntlet.GuildHall.Sorcerer = function() {
+Gauntlet.GuildHall.Sorcerer = function() {
   this.name = "Sorcerer";
   this.healthBonus = this.healthBonus - 5;
   this.strengthBonus = this.strengthBonus - 20;

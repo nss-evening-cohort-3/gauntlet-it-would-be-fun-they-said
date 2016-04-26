@@ -21,10 +21,12 @@ PlayerTwo.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 var spell = new Gauntlet.SpellBook.Sphere();
 
 $(".className").click(function(e) {
-       let classSel = $(this).val();
+      
+       let classSel = $(this).children(0).children(1).val();
+       console.log("", classSel);
        if (e.target.closest('div').classList.contains("className")) {
      // if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
-       PlayerOne.setClass();
+       PlayerOne.setClass(classSel);
        console.log(PlayerOne);
      }
    })
