@@ -32,7 +32,7 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      // (this.class.magical) ? "Able to cast " : 
+      // (this.class.magical) ? "Able to cast " :
       " Wielding a ",
       this.weapon.toString(),
       "!"
@@ -67,14 +67,14 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 Gauntlet.Combatants.Human = function() {
   var randomSkin;
 
   this.species = "Human";
-  this.intelligence = this.xintelligence + 20;
+  this.intelligence = this.intelligence + 20;
 
   this.skinColors.push("brown", "red", "white", "disease");
   randomSkin = Math.round(Math.random() * (this.skinColors.length-1));
@@ -86,7 +86,7 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {
