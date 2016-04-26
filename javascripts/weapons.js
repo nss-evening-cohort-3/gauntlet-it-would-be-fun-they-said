@@ -14,16 +14,6 @@ originalGauntlet.WeaponRack.Weapon = function () {
     return this.name;
   }
 };
-
-var Weapon = function() {
-  this.name = "bare hands";
-  this.damage = 1;
-  this.hands = 2;
-
-  this.toString = function() {
-    return this.name;
-  }
-};
 console.log(originalGauntlet.WeaponRack.Weapon);
 
 originalGauntlet.WeaponRack.Dagger =function() {
