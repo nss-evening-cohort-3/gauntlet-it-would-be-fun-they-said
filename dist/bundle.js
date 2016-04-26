@@ -47,8 +47,15 @@ $('#weapon-select').click(function(e) {
   $("#readyToRumble").show();
 })
 
+// This is where the function to generate a random class for PlayerOne is called upoon clciking on the "Suprise me" button on the page where you select a class.
   $('.random').click(function() {
     PlayerOne.generateClass();  // This will be used for "Surprise me" option
+    console.log("PlayerOne", PlayerOne);
+});
+
+// This is where the function to generate a random weapon for PlayerOne is called upoon clciking on the "Suprise me" button on the page where you select a weapon.
+  $('.other').click(function() {
+    PlayerOne.generateWeapon();  // This will be used for "Surprise me" option
     console.log("PlayerOne", PlayerOne);
 });
 
@@ -427,6 +434,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
+  this.allowedWeapons = ["Weapon", "Dagger", "BroadSword", "WarAxe"];
 
   this.toString = function() {
     var output = [this.playerName,
@@ -472,6 +480,21 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
   this.health += this.class.healthBonus;
   return this.class;
 };
+
+// This is the function that generates a random weapon for the PlayerOne
+Gauntlet.Combatants.Player.prototype.generateWeapon = function() {
+  // Get a random index from the allowed classes array
+  var random = Math.round(Math.random() * (this.allowedWeapons.length - 1));
+
+  // Get the string at the index
+  var randomWeapon = this.allowedWeapons[random];
+
+  // Composes the corresponding player class into the player object
+  this.weapon = new Gauntlet.WeaponRack[randomWeapon]();
+
+  return this.weapon;
+};
+
 
 /*
   Define the base properties for a human in a
