@@ -32,7 +32,7 @@ Gauntlet.Combatants.Player = function(name) {
       " with ",
       this.health,
       " health. ",
-      // (this.class.magical) ? "Able to cast " : 
+      // (this.class.magical) ? "Able to cast " :
       " Wielding a ",
       this.weapon.toString(),
       "!"
@@ -43,7 +43,11 @@ Gauntlet.Combatants.Player = function(name) {
 
 Gauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
   this.weapon = newWeapon;
-}
+};
+
+Gauntlet.Combatants.Player.prototype.setClass = function(newClass) {
+  this.class = new Gauntlet.GuildHall[newClass];
+};
 
 
 
@@ -63,7 +67,7 @@ Gauntlet.Combatants.Player.prototype.generateClass = function() {
 };
 
 /*
-  Define the base properties for a human in a 
+  Define the base properties for a human in a
   constructor function.
  */
 Gauntlet.Combatants.Human = function() {
@@ -82,7 +86,7 @@ Gauntlet.Combatants.Human.prototype = new Gauntlet.Combatants.Player();
 
 
 /*
-  Define the base properties for a monster in a 
+  Define the base properties for a monster in a
   constructor function.
  */
 Gauntlet.Combatants.Monster = function() {

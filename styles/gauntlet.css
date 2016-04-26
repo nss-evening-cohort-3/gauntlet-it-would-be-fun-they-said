@@ -1,8 +1,17 @@
+@font-face {
+  font-family: Gamegirl;
+  src: local("Gamegirl"),
+       local("Gamegirl"),
+       url(/font/Gamegirl.ttf);
+}
+
 body {
-  font-family: "Lato", "Helvetica", "sans-serif";
+  font-family: "Gamegirl", "Helvetica", "sans-serif";
+  background-color: black;
+  color: white;
   margin: 0;
   padding: 10px;
-  font-size: 3em;
+  font-size: 2.5em;
 }
 
 .field {
@@ -102,4 +111,26 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+#game-container {
+  padding: 15px;
+  margin-top: 10px;
+  height: 700px;
+  border: 5px solid white;
+  border-radius: 15px;
+}
+
+.field__textinput {
+  color: black;
+}
+
+#player-setup {
+  margin-top: 12.5%;
+}
+
+.attackButton {
+  position: fixed;
+  bottom: 35px;
+  left: 575px;
 }
