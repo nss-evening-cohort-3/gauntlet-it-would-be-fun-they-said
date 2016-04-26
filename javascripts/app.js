@@ -30,18 +30,18 @@ $(".className").click(function(e) {
 
 
 $('#weapon-select').click(function(e) {
-  if(e.target.parentNode.classList.contains('barehands') || e.target.closest(".barehands")){
+  if(e.target.parentNode.classList.contains("hands")) {
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.Weapon());
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('dagger') || e.target.closest(".dagger")){
+  } else if (e.target.parentNode.classList.contains("dagger")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
     console.log(PlayerOne);
 
-  } else if (e.target.parentNode.classList.contains('broadsword') || e.target.closest(".broadsword")){
+  } else if (e.target.parentNode.classList.contains("sword")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 
     console.log(PlayerOne);
-  } else if (e.target.parentNode.classList.contains('waraxe') || e.target.closest(".waraxe")){
+  } else if (e.target.parentNode.classList.contains("axe")){
     PlayerOne.setWeapon(new Gauntlet.WeaponRack.WarAxe());
     console.log(PlayerOne);
   }
@@ -128,6 +128,7 @@ winGame = function (){
   $("#class-select").click(function(e) {
     if (e.target.parentNode.classList.contains("className")) {
       PlayerOne.class = e.target.innerHTML;
+
     }
   })
 
