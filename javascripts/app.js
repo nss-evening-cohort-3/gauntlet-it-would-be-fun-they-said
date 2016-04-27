@@ -26,7 +26,6 @@ $(".className").click(function(e) {
        } else {
         pickClassId = e.target.innerHTML;
      }
-     PlayerOne.setClass(pickClassId);
      console.log(PlayerOne);
    })
    
@@ -135,16 +134,20 @@ function statCardTwo(){
   $('#statTwo').html(`<div>Name: ${PlayerTwo.name}</div><div>Class: ${PlayerTwo.class}</div><div>Species: ${PlayerTwo.species}</div><div>Health: ${PlayerTwo.health}</div><div>Int: ${PlayerTwo.intelligence}</div><div>Skin: ${PlayerTwo.skinColor}</div>`)
 }
 
-
+$("#title-screen").click(function() {
+  $("#title-screen").hide();
+  $("#player-setup").show();
+})
 
 $(document).ready(function() {
 
-winGame = function (){
- $(".attackButton").hide();
- p2AtkWinString = `${""}`;
- p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.name}`;
- atkDisplay(p2AtkWinString, p1AtkWinString);
-}
+  $('#player-setup').hide()
+  winGame = function (){
+   $(".attackButton").hide();
+   p2AtkWinString = `${""}`;
+   p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.name}`;
+   atkDisplay(p2AtkWinString, p1AtkWinString);
+  }
 
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
@@ -165,7 +168,6 @@ winGame = function (){
     Show the initial view that accepts player name
     but hides the enter battleground button and battlefield
    */
-  $("#player-setup").show();
   $("#readyToRumble").hide();
   $("#battleground").hide();
 
@@ -186,6 +188,7 @@ winGame = function (){
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
+        PlayerOne.setClass(pickClassId);
         console.log("cardWeapon", moveAlong );
         break;
       case "card--battleground":
