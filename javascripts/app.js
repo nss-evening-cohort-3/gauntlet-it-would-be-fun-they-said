@@ -2,7 +2,7 @@
   Test code to generate a human player and an orc player
  */
 var PlayerOne = new Gauntlet.Combatants.Human();
-
+var pickClassId;
 PlayerOne.setWeapon(new Gauntlet.WeaponRack.Dagger());
 
 
@@ -19,12 +19,17 @@ PlayerTwo.setWeapon(new Gauntlet.WeaponRack.BroadSword());
 var spell = new Gauntlet.SpellBook.Sphere();
 
 $(".className").click(function(e) {
-       if (e.target.closest('div').classList.contains("className")) {
-     // if (e.target.parentNode.classList.contains("className") || e.target.closest('className')) {
-       PlayerOne.class = this.querySelector('.btn__text').innerHTML;
-       console.log(this.querySelector('.btn__text').innerHTML);
+       if (e.target.classList.contains("className")) {
+        pickClassId = e.target.id;
+       } else if (e.target.parentNode.classList.contains("className")) {
+        pickClassId = e.target.parentNode.id;
+       } else {
+        pickClassId = e.target.innerHTML;
      }
+     PlayerOne.setClass(pickClassId);
+     console.log(PlayerOne);
    })
+   
 
 
 $('#weapon-select').click(function(e) {
@@ -148,12 +153,12 @@ winGame = function (){
     PlayerOne.name = $('#player-name').val();
   });
 
-  $("#class-select").click(function(e) {
-    if (e.target.parentNode.classList.contains("className")) {
-      PlayerOne.class = e.target.innerHTML;
+  // $("#class-select").click(function(e) {
+  //   if (e.target.parentNode.classList.contains("className")) {
+  //     PlayerOne.class = e.target.innerHTML;
 
-    }
-  })
+  //   }
+  // })
 
 
   /*
