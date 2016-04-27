@@ -26,7 +26,6 @@ $(".className").click(function(e) {
        } else {
         pickClassId = e.target.innerHTML;
      }
-     PlayerOne.setClass(pickClassId);
      console.log(PlayerOne);
    })
    
@@ -189,6 +188,7 @@ $(document).ready(function() {
         break;
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
+        PlayerOne.setClass(pickClassId);
         console.log("cardWeapon", moveAlong );
         break;
       case "card--battleground":
