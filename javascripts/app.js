@@ -135,10 +135,6 @@ function statCardTwo(){
   $('#statTwo').html(`<div>Name: ${PlayerTwo.name}</div><div>Class: ${PlayerTwo.class}</div><div>Species: ${PlayerTwo.species}</div><div>Health: ${PlayerTwo.health}</div><div>Int: ${PlayerTwo.intelligence}</div><div>Skin: ${PlayerTwo.skinColor}</div>`)
 }
 
-$(document).ready(function(){
-  $('#player-setup').hide()
-});
-
 $("#title-screen").click(function() {
   $("#title-screen").hide();
   $("#player-setup").show();
@@ -146,12 +142,13 @@ $("#title-screen").click(function() {
 
 $(document).ready(function() {
 
-winGame = function (){
- $(".attackButton").hide();
- p2AtkWinString = `${""}`;
- p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.name}`;
- atkDisplay(p2AtkWinString, p1AtkWinString);
-}
+  $('#player-setup').hide()
+  winGame = function (){
+   $(".attackButton").hide();
+   p2AtkWinString = `${""}`;
+   p1AtkWinString = `${PlayerOne.name} has Defeated ${PlayerTwo.name}`;
+   atkDisplay(p2AtkWinString, p1AtkWinString);
+  }
 
 
   // Grab value from input for Player Name on click of anchor element "Select Class"
@@ -172,7 +169,6 @@ winGame = function (){
     Show the initial view that accepts player name
     but hides the enter battleground button and battlefield
    */
-  $("#player-setup").show();
   $("#readyToRumble").hide();
   $("#battleground").hide();
 
