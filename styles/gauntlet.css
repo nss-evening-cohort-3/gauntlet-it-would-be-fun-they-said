@@ -2,7 +2,7 @@
   font-family: Gamegirl;
   src: local("Gamegirl"),
        local("Gamegirl"),
-       url(/font/Gamegirl.ttf);
+       url(../font/Gamegirl.ttf);
 }
 
 body {

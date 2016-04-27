@@ -43,7 +43,9 @@ Once the player has chosen all options for class, weapon, etc., you need to have
 4. As soon as either combatant reaches health of 0, disable the attack button and annouce the winner.
 
 
-### Screenshot of Game Load ![Screenshot](/img/rpgstart.png)
+## Screenshot of Game Load ![Screenshot](/img/rpgtitle.png)
+
+### Screenshot of Game Start ![Screenshot](/img/rpgstart.png)
 
 ### Screenshot of Player Class ![Screenshot](/img/rpgclass.png)
 
