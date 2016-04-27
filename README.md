@@ -49,6 +49,6 @@ Once the player has chosen all options for class, weapon, etc., you need to have
 
 ### Screenshot of Weapon Choice ![Screenshot](/img/rpgweapon.png)
 
-### Screenshot of Battlefield ![Screenshot](/img/rpgload.png)
+### Screenshot of Battlefield ![Screenshot](/img/rpgbattle.png)
 
 ### Screenshot of Game End ![Screenshot](/img/rpgend.png)
