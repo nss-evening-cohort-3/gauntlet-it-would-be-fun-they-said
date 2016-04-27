@@ -135,7 +135,14 @@ function statCardTwo(){
   $('#statTwo').html(`<div>Name: ${PlayerTwo.name}</div><div>Class: ${PlayerTwo.class}</div><div>Species: ${PlayerTwo.species}</div><div>Health: ${PlayerTwo.health}</div><div>Int: ${PlayerTwo.intelligence}</div><div>Skin: ${PlayerTwo.skinColor}</div>`)
 }
 
+$(document).ready(function(){
+  $('#player-setup').hide()
+});
 
+$("#title-screen").click(function() {
+  $("#title-screen").hide();
+  $("#player-setup").show();
+})
 
 $(document).ready(function() {
 
