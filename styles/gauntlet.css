@@ -158,3 +158,11 @@ body {
   bottom: 35px;
   left: 575px;
 }
+
+#statOne, #statTwo {
+  margin-top: 5%;
+}
+
+.other {
+  margin-top: 0px;
+}
