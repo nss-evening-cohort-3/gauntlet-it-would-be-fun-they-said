@@ -6,7 +6,7 @@ var Gauntlet = (function(originalGauntlet) {
 // originalGauntlet.Combatants = {};
 originalGauntlet.WeaponRack = {};
 
-originalGauntlet.WeaponRack.Weapon = function () {
+Gauntlet.WeaponRack.Weapon = function () {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
@@ -14,31 +14,31 @@ originalGauntlet.WeaponRack.Weapon = function () {
     return this.name;
   }
 };
-console.log(originalGauntlet.WeaponRack.Weapon);
+console.log(Gauntlet.WeaponRack.Weapon);
 
-originalGauntlet.WeaponRack.Dagger =function() {
+Gauntlet.WeaponRack.Dagger =function() {
   this.name = "dagger";
   this.damage = 4;
   this.hands = 1;
 };
-originalGauntlet.WeaponRack.Dagger.prototype = new originalGauntlet.WeaponRack.Weapon();
-console.log(originalGauntlet.WeaponRack.Dagger);
+Gauntlet.WeaponRack.Dagger.prototype = new Gauntlet.WeaponRack.Weapon();
+console.log(Gauntlet.WeaponRack.Dagger);
 
-originalGauntlet.WeaponRack.BroadSword = function() {
+Gauntlet.WeaponRack.BroadSword = function() {
   this.name = "broad sword";
   this.damage = 14;
   this.hands = 2;
 };
-originalGauntlet.WeaponRack.BroadSword.prototype = new originalGauntlet.WeaponRack.Weapon();
-console.log(originalGauntlet.WeaponRack.BroadSword);
+Gauntlet.WeaponRack.BroadSword.prototype = new Gauntlet.WeaponRack.Weapon();
+console.log(Gauntlet.WeaponRack.BroadSword);
 
-originalGauntlet.WeaponRack.WarAxe = function() {
+Gauntlet.WeaponRack.WarAxe = function() {
   this.name = "war axe";
   this.damage = 18;
   this.hands = 2;
 };
-originalGauntlet.WeaponRack.WarAxe.prototype = new originalGauntlet.WeaponRack.Weapon();
-console.log(originalGauntlet.WeaponRack.WarAxe);
+Gauntlet.WeaponRack.WarAxe.prototype = new Gauntlet.WeaponRack.Weapon();
+console.log(Gauntlet.WeaponRack.WarAxe);
 
 return originalGauntlet;
 } (Gauntlet || {}));
